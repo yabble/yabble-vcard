@@ -1,0 +1,19 @@
+include "page/page.yate"
+
+match / {
+  html('<!DOCTYPE html>')
+  <html>
+    <head>
+      <link href="css/{.meta.name}.min.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+      b-page({
+        'content': (
+          <div class="hello">
+            .ru.name
+          </div>
+        )
+      })
+    </body>
+  </html>
+}

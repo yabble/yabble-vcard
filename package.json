@@ -1,0 +1,22 @@
+{
+  "name": "yandex-vcard",
+  "description": "Yet Another vcard template",
+  "version": "0.1.0",
+  "homepage": "https://github.com/vitkarpov/yandex-vcard",
+  "author": "Viktor Karpov <viktor.s.karpov@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vitkarpov/yandex-vcard.git"
+  },
+  "bugs": {
+    "url": "hhttps://github.com/vitkarpov/yandex-vcard/issues"
+  },
+  "dependencies": {
+    "yate": "~0.0.72",
+    "stylus": "~0.47.3",
+    "grunt-contrib-stylus": "~0.18.0",
+    "grunt-yate": "~0.2.0",
+    "grunt-contrib-cssmin": "~0.10.0"
+  },
+  "license": "MIT"
+}
