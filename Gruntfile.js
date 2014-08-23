@@ -38,7 +38,7 @@ module.exports = function(grunt) {
   config.browserify = {
     blocks: {
       files: {
-        'yacard.min.js': ['b/**/*.js', '!b/_*.js']
+        'yacard.min.js': ['b/**/*.js', '!b/_externals.js']
       }
     }
   };

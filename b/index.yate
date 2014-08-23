@@ -1,6 +1,8 @@
 external nodeset _wrap(scalar, nodeset)
 
+include "_common/common.yate"
 include "page/page.yate"
+include "link/link.yate"
 include "card/card.yate"
 
 match / {

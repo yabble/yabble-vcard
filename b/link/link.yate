@@ -1,0 +1,41 @@
+func link(nodeset params) {
+  apply _wrap('link', params).* b
+}
+
+match .link b {
+  <a>
+    apply . b-link-attrs
+    apply . b-link-content
+  </a>
+}
+
+match .link[.pseudo] b {
+  <span>
+    apply . b-link-attrs
+    <span class="link__inner">
+      apply . b-link-content
+    </span>
+  </span>
+}
+
+match .link b-link-attrs {
+  @data-nb = 'link'
+  @class = 'link _init'
+  if .pseudo {
+    @class += ' link_pseudo'
+  }
+  if .current {
+    @class += ' link_current'
+  }
+  if .href {
+    @href = .href
+  }
+  apply . _common-attrs
+}
+
+match .link b-link-content {
+  if .href {
+    @href = .href
+  }
+  html(.content)
+}

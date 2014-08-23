@@ -1,0 +1,19 @@
+.link
+  color: #2879ac
+  cursor: pointer
+
+.link_pseudo
+  text-decoration: none
+
+  &:hover
+    color: #f00
+
+
+.link__inner
+  color: inherit
+  border-bottom: 1px dotted
+
+  .link_current &
+    color: black
+    border-bottom: 0
+    cursor: default

@@ -1,0 +1,24 @@
+match .* _common-attrs {
+
+    if .id {
+        @id = .id
+    }
+
+    @class += for .class {
+        ' {.}'
+    }
+
+    if .mixin-nb {
+        @data-nb += for .mixin-nb {
+            ' {.}'
+        }
+    }
+
+    for .data-nb.* {
+        @data-nb-{name()} = .
+    }
+
+    for .attrs.* {
+        @{name()} = .
+    }
+}

@@ -8,7 +8,7 @@ match .page b {
     <head>
       apply . b-page-styles
     </head>
-    <body class="page">
+    <body class="page" data-nb="page">
       html(.content)
       apply . b-page-scripts
     </body>

@@ -1,4 +1,4 @@
-.b-card
+.card
   position: absolute
   top: 50%
   left: 50%
@@ -11,7 +11,8 @@
   perspective: 1000
 
 
-.b-card__side
+.card__side
+  position: absolute
   z-index: 1
   top: 0
   left: 0
@@ -19,33 +20,27 @@
   backface-visibility: hidden
   transform: rotateX(-180deg)
 
-body .b-card__side
-  position: absolute
-
-.b-card__side_state_closed
+.card__side_state_closed
   transition: all .4s ease-in-out
   transform: rotateX(180deg)
 
-.b-card__side_state_opened
+.card__side_state_opened
   z-index: 2
   transition: all .4s ease-in-out
   transform: rotateX(0)
 
 
-.b-card__switch
+.card__switch
   position: absolute
   z-index: 10
   top: 318px
   left: 10px
 
-.b-card__switch .b-link
+.card__link
   display: none
   margin-right: 0.5em
-
-.b-card__switch .b-link
-.b-card__switch .b-link__inner
   float: left
   line-height: 1
 
-.b-card__switch .b-link_js_inited
+.card__link.link_js_inited
   display: block

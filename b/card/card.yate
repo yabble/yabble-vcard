@@ -5,7 +5,17 @@ func card(nodeset params) {
 match .card b {
   <div class="card card_lang_{.lang} _init" data-nb="card">
     <div class="card__switch">
-      'ссылка и ссылка'
+      link({
+        'class': 'card__link'
+        'pseudo': true()
+        'current': true()
+        'content': 'ru'
+      })
+      link({
+        'class': 'card__link'
+        'pseudo': true()
+        'content': 'en'
+      })
     </div>
   </div>
 }

@@ -1,16 +1,12 @@
 var nb = require('nanoblocks');
 
-nb.define('page', {
+nb.define('link', {
   events: {
     'init': '_oninit'
   },
 
   _oninit: function() {
     this.$node = $(this.node);
-    this.$node.addClass('page_js_inited');
+    this.$node.addClass('link_js_inited');
   }
-});
-
-$(function() {
-  nb.init();
 });
