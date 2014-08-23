@@ -33,6 +33,11 @@ module.exports = function(grunt) {
       }
     }
   };
+  config.autoprefixer = {
+    blocks: {
+      src: 'yacard.min.css'
+    }
+  };
 
   //scripts
   config.browserify = {
@@ -48,7 +53,7 @@ module.exports = function(grunt) {
     files: [
       'b/**/*'
     ],
-    tasks: ['yate', 'stylus', 'browserify']
+    tasks: ['yate', 'stylus', 'browserify', 'autoprefixer']
   };
 
   grunt.initConfig(config);
@@ -57,6 +62,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-stylus');
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-autoprefixer');
 
-  grunt.registerTask('default', ['yate', 'stylus', 'browserify', 'watch']);
+  grunt.registerTask('default', ['yate', 'stylus', 'browserify', 'autoprefixer', 'watch']);
 };
