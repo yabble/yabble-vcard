@@ -43,11 +43,20 @@ module.exports = function(grunt) {
     }
   };
 
+  //watch
+  config.watch = {
+    files: [
+      'b/**/*'
+    ],
+    tasks: ['yate', 'stylus', 'browserify']
+  };
+
   grunt.initConfig(config);
 
   grunt.loadNpmTasks('grunt-yate');
   grunt.loadNpmTasks('grunt-contrib-stylus');
   grunt.loadNpmTasks('grunt-browserify');
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('default', ['yate', 'stylus', 'browserify']);
+  grunt.registerTask('default', ['yate', 'stylus', 'browserify', 'watch']);
 };
