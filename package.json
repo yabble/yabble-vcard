@@ -12,11 +12,10 @@
     "url": "hhttps://github.com/vitkarpov/yandex-vcard/issues"
   },
   "dependencies": {
-    "yate": "~0.0.72",
-    "stylus": "~0.47.3",
     "grunt-contrib-stylus": "~0.18.0",
     "grunt-yate": "~0.2.0",
-    "grunt-contrib-cssmin": "~0.10.0"
+    "grunt-browserify": "~2.1.4",
+    "nanoblocks": "https://github.com/html-toolkit/nanoblocks/tarball/master"
   },
   "license": "MIT"
 }

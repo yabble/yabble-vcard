@@ -1,0 +1,11 @@
+func card(nodeset params) {
+  apply _wrap('card', params).* b
+}
+
+match .card b {
+  <div class="card card_lang_{.lang} _init" data-nb="card">
+    <div class="card__switch">
+      'ссылка и ссылка'
+    </div>
+  </div>
+}

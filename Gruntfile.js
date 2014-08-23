@@ -1,4 +1,5 @@
 var vm = require('vm');
+var data = require('./data-template.json');
 
 module.exports = function(grunt) {
   'use strict';
@@ -9,8 +10,9 @@ module.exports = function(grunt) {
   config.yate = {
     options: {
       runtime: true,
+      externals: 'b/_externals.js',
       postprocess: function(code) {
-        return vm.runInNewContext(code + "yr.run('main', {});");
+        return vm.runInNewContext(code + "yr.run('main', " + JSON.stringify(data) + ");");
       }
     },
     page: {
@@ -25,14 +27,19 @@ module.exports = function(grunt) {
     options: {
       banner: '/* [Yet Another Yandex Vcard](https://github.com/vitkarpov/yandex-vcard) */'
     },
-    files: {
-      'css/yacard.css': ['b/**/*.styl']
+    blocks: {
+      files: {
+        'yacard.min.css': ['b/**/*.styl']
+      }
     }
   };
 
-  config.cssmin = {
-    files: {
-      'css/yacard.min.css': 'css/yacard.css'
+  //scripts
+  config.browserify = {
+    blocks: {
+      files: {
+        'yacard.min.js': ['b/**/*.js', '!b/_*.js']
+      }
     }
   };
 
@@ -40,7 +47,7 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-yate');
   grunt.loadNpmTasks('grunt-contrib-stylus');
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-browserify');
 
-  grunt.registerTask('default', ['yate']);
+  grunt.registerTask('default', ['yate', 'stylus', 'browserify']);
 };

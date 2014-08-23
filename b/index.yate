@@ -1,19 +1,23 @@
+external nodeset _wrap(scalar, nodeset)
+
 include "page/page.yate"
+include "card/card.yate"
 
 match / {
-  html('<!DOCTYPE html>')
-  <html>
-    <head>
-      <link href="css/{.meta.name}.min.css" rel="stylesheet" type="text/css" />
-    </head>
-    <body>
-      b-page({
-        'content': (
-          <div class="hello">
-            .ru.name
-          </div>
-        )
+  page({
+    'title': .title
+    'favicon': '/favicon.ico'
+    'styles': [
+      'yacard.min.css'
+    ]
+    'scripts': [
+      '//yandex.st/jquery/2.0.0/jquery.min.js'
+      'yacard.min.js'
+    ]
+    'content': (
+      card({
+        'lang': 'ru'
       })
-    </body>
-  </html>
+    )
+  })
 }

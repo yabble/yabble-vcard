@@ -1,5 +1,28 @@
-func b-page(object params) {
-  if params.content {
-    html(params.content)
+func page(nodeset params) {
+  apply _wrap('page', params).* b
+}
+
+match .page b {
+  html('<!DOCTYPE html>')
+  <html>
+    <head>
+      apply . b-page-styles
+    </head>
+    <body class="page">
+      html(.content)
+      apply . b-page-scripts
+    </body>
+  </html>
+}
+
+match .page b-page-styles {
+  for .styles {
+    <link rel="stylesheet" type="text/css" href="{.}" />
+  }
+}
+
+match .page b-page-scripts {
+  for .scripts {
+    <script type="text/javascript" src="{.}"></script>
   }
 }
