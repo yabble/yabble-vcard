@@ -1,0 +1,7 @@
+func info(nodeset params) {
+  apply _wrap('info', params).* b
+}
+
+match .info b {
+  'hello'
+}

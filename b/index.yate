@@ -1,9 +1,11 @@
 external nodeset _wrap(scalar, nodeset)
 
 include "_common/common.yate"
-include "page/page.yate"
 include "link/link.yate"
+include "info/info.yate"
+include "card-layout/card-layout.yate"
 include "card/card.yate"
+include "page/page.yate"
 
 match / {
   page({
@@ -17,9 +19,40 @@ match / {
       'yacard.min.js'
     ]
     'content': (
+
       card({
         'lang': 'ru'
+        'content': (
+
+          card-layout({
+            'lang': 'ru'
+            'content': (
+
+              info({
+                'name': .ru.info.name
+                'position': .ru.info.position
+                'company': {
+                    'country': .ru.info.country
+                    'locality': .ru.info.locality
+                    'zip': .ru.info.zip
+                    'address': .ru.info.address
+                    'phone': .ru.info.phone
+                    'phone-add': .ru.info.phone-add
+                    'site': .ru.info.site
+                }
+                'person': {
+                    'email': .ru.info.email
+                    'cellular': .ru.info.cellular
+                    'github': .ru.info.github
+                }
+              })
+
+            )
+          })
+
+        )
       })
+
     )
   })
 }

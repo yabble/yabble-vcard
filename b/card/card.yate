@@ -17,5 +17,6 @@ match .card b {
         'content': 'en'
       })
     </div>
+    html(.content)
   </div>
 }
