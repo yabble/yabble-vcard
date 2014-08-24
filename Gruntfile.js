@@ -10,14 +10,14 @@ module.exports = function(grunt) {
   config.yate = {
     options: {
       runtime: true,
-      externals: 'b/_externals.js',
+      externals: 'blocks/_externals.js',
       postprocess: function(code) {
         return vm.runInNewContext(code + "yr.run('main', " + JSON.stringify(data) + ");");
       }
     },
     page: {
       files: {
-        'index.html': 'b/index.yate'
+        'index.html': 'pages/index/index.yate'
       }
     }
   };
@@ -29,8 +29,8 @@ module.exports = function(grunt) {
     },
     blocks: {
       files: {
-        'yacard.min.css': ['b/**/*.styl'],
-        'yacard.ie.min.css': ['b/**/*.ie.styl']
+        'yacard.min.css': ['blocks/**/*.styl'],
+        'yacard.ie.min.css': ['blocks/**/*.ie.styl']
       }
     }
   };
@@ -44,7 +44,7 @@ module.exports = function(grunt) {
   config.browserify = {
     blocks: {
       files: {
-        'yacard.min.js': ['b/**/*.js', '!b/_externals.js']
+        'yacard.min.js': ['blocks/**/*.js', '!blocks/_externals.js']
       }
     }
   };
@@ -52,7 +52,7 @@ module.exports = function(grunt) {
   //watch
   config.watch = {
     files: [
-      'b/**/*'
+      'blocks/**/*'
     ],
     tasks: ['yate', 'stylus', 'browserify', 'autoprefixer']
   };

@@ -1,13 +1,13 @@
 external nodeset _wrap(scalar, nodeset)
 external scalar json(nodeset)
 
-include "_common/common.yate"
-include "icon/icon.yate"
-include "link/link.yate"
-include "info/info.yate"
-include "card-layout/card-layout.yate"
-include "card/card.yate"
-include "page/page.yate"
+include "../../blocks/_common/common.yate"
+include "../../blocks/icon/icon.yate"
+include "../../blocks/link/link.yate"
+include "../../blocks/info/info.yate"
+include "../../blocks/card-layout/card-layout.yate"
+include "../../blocks/card/card.yate"
+include "../../blocks/page/page.yate"
 
 match / {
   page({

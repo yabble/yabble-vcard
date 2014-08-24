@@ -9,7 +9,7 @@ match .info b {
 
 match .info b-info-logo {
   <div class="info__logo">
-    <img src="b/info/info__logo_lang_{.lang}.png" width="110" height="48" />
+    <img src="blocks/info/info__logo_lang_{.lang}.png" width="110" height="48" />
   </div>
 }
 
