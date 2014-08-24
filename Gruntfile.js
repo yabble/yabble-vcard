@@ -65,5 +65,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-autoprefixer');
 
-  grunt.registerTask('default', ['yate', 'stylus', 'browserify', 'autoprefixer', 'watch']);
+  grunt.registerTask('default', ['yate', 'stylus', 'browserify', 'autoprefixer']);
+  grunt.registerTask('watch', ['default', 'watch']);
 };
