@@ -39,3 +39,5 @@ $ grunt
 * yacard.min.css
 * yacard.ie.min.css
 * yacard.min.js
+
+Нужно залить их, вместе с папкой `blocks`, на сервер.
