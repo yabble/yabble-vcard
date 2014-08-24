@@ -3,5 +3,137 @@ func info(nodeset params) {
 }
 
 match .info b {
-  'hello'
+  apply . b-info-logo
+  apply . b-info-text
+}
+
+match .info b-info-logo {
+  <div class="info__logo">
+    <img src="b/info/info__logo_lang_{.lang}.png" width="110" height="48" />
+  </div>
+}
+
+match .info b-info-text {
+  <div class="info__text">
+    <div class="info__title">
+      <h1 class="info__name">
+        .name
+      </h1>
+      <strong class="info__position">
+        .position
+      </strong>
+    </div>
+    apply . b-info-address
+    <p class="info__contacts">
+      link({
+        'attrs': {
+          'href': 'mailto:{.person.email}'
+        }
+        'static': true()
+        'content': .person.email
+      })
+      <br />
+      b-info__social({
+        'icon': 'github'
+        'text': 'github.com/{.person.github}'
+        'url': 'https://github.com/{.person.github}'
+      })
+      b-info__social({
+        'icon': 'vk'
+        'text': 'vk.com/{.person.vk}'
+        'url': 'https://vk.com/{.person.vk}'
+      })
+      b-info__social({
+        'icon': 'skype'
+        'text': .person.skype
+      })
+    </p>
+  </div>
+}
+
+match .info b-info-address {
+  <p class="info__contacts">
+      .company.country
+      ', '
+      .company.locality
+      ', '
+      .company.zip
+      <br />
+      .company.address
+      <br />
+      'тел.: '
+      .company.phone
+      ', доб.'
+      .company.phone-add
+      <br />
+      'моб.: '
+      .person.cell
+      <br />
+      link({
+        'attrs': {
+          'target': '_blank'
+          'href': 'http://{.company.site}'
+        }
+        'static': true()
+        'content': .company.site
+      })
+    </p>
+}
+
+match .info['en' == .lang] b-info-address {
+  <p class="info__contacts">
+    .company.locality
+    ' '
+    .company.zip
+    ', '
+    .company.country
+    <br />
+    .company.address
+    <br />
+    'tel. '
+    .company.phone
+    ', ext.'
+    .company.phone-add
+    <br />
+    'cell. '
+    .person.cell
+    <br />
+    link({
+      'attrs': {
+        'target': '_blank'
+        'href': 'http://{.company.site}'
+      }
+      'static': true()
+      'content': .company.site
+    })
+  </p>
+}
+
+func b-info__social(nodeset params) {
+  <span class="info__social">
+    if params.url {
+      link({
+        'attrs': {
+          'target': '_blank'
+          'href': params.url
+        }
+        'static': true()
+        'content': (
+          icon({
+            'class': 'info__icon-social'
+            'icon': params.icon
+          })
+          ' '
+          params.text
+        )
+      })
+    } else {
+      icon({
+        'class': 'info__icon-social'
+        'icon': params.icon
+      })
+      ' '
+      params.text
+    }
+  </span>
 }

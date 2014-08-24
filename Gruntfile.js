@@ -1,5 +1,5 @@
 var vm = require('vm');
-var data = require('./data-template.json');
+var data = require('./vcard.json');
 
 module.exports = function(grunt) {
   'use strict';
@@ -29,7 +29,8 @@ module.exports = function(grunt) {
     },
     blocks: {
       files: {
-        'yacard.min.css': ['b/**/*.styl']
+        'yacard.min.css': ['b/**/*.styl'],
+        'yacard.ie.min.css': ['b/**/*.ie.styl']
       }
     }
   };

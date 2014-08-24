@@ -1,6 +1,8 @@
 external nodeset _wrap(scalar, nodeset)
+external scalar json(nodeset)
 
 include "_common/common.yate"
+include "icon/icon.yate"
 include "link/link.yate"
 include "info/info.yate"
 include "card-layout/card-layout.yate"
@@ -12,11 +14,21 @@ match / {
     'title': .title
     'favicon': '/favicon.ico'
     'styles': [
-      'yacard.min.css'
+      {
+        'url': 'yacard.min.css'
+      }
+      {
+        'url': 'yacard.min.ie.css'
+        'ie': true()
+      }
     ]
     'scripts': [
-      '//yandex.st/jquery/2.0.0/jquery.min.js'
-      'yacard.min.js'
+      {
+        'url': '//yandex.st/jquery/2.0.0/jquery.min.js'
+      }
+      {
+        'url': 'yacard.min.js'
+      }
     ]
     'content': (
 
@@ -25,25 +37,59 @@ match / {
         'content': (
 
           card-layout({
+            'class': 'card__side card__side_state_opened'
             'lang': 'ru'
             'content': (
 
               info({
-                'name': .ru.info.name
-                'position': .ru.info.position
+                'lang': 'ru'
+                'name': .ru.name
+                'position': .ru.position
                 'company': {
-                    'country': .ru.info.country
-                    'locality': .ru.info.locality
-                    'zip': .ru.info.zip
-                    'address': .ru.info.address
-                    'phone': .ru.info.phone
-                    'phone-add': .ru.info.phone-add
-                    'site': .ru.info.site
+                  'country': .ru.company.country
+                  'locality': .ru.company.locality
+                  'zip': .ru.company.zip
+                  'address': .ru.company.address
+                  'phone': .ru.company.phone
+                  'phone-add': .ru.company.phone-add
+                  'site': .ru.company.site
                 }
                 'person': {
-                    'email': .ru.info.email
-                    'cellular': .ru.info.cellular
-                    'github': .ru.info.github
+                  'email': .ru.person.email
+                  'cell': .ru.person.cell
+                  'github': .social.github
+                  'vk': .social.vk
+                  'skype': .social.skype
+                }
+              })
+
+            )
+          })
+
+          card-layout({
+            'class': 'card__side card__side_state_closed'
+            'lang': 'en'
+            'content': (
+
+              info({
+                'lang': 'en'
+                'name': .en.name
+                'position': .en.position
+                'company': {
+                  'country': .en.company.country
+                  'locality': .en.company.locality
+                  'zip': .en.company.zip
+                  'address': .en.company.address
+                  'phone': .en.company.phone
+                  'phone-add': .en.company.phone-add
+                  'site': .en.company.site
+                }
+                'person': {
+                  'email': .en.person.email
+                  'cell': .en.person.cell
+                  'github': .social.github
+                  'vk': .social.vk
+                  'skype': .social.skype
                 }
               })
 

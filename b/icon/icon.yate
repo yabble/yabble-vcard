@@ -1,0 +1,9 @@
+func icon(nodeset params) {
+  apply _wrap('icon', params).* b
+}
+
+match .icon b {
+  <img src="//yandex.st/lego/_/La6qi18Z8LwgnZdsAr1qy1GwCwo.gif" class="icon icon_{.icon}">
+    apply . _common-attrs
+  </img>
+}

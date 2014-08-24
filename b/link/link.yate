@@ -19,16 +19,16 @@ match .link[.pseudo] b {
 }
 
 match .link b-link-attrs {
-  @data-nb = 'link'
-  @class = 'link _init'
+  @class = 'link'
+  if !.static {
+    @class += ' _init'
+    @data-nb = 'link'
+  }
   if .pseudo {
     @class += ' link_pseudo'
   }
   if .current {
     @class += ' link_current'
-  }
-  if .href {
-    @href = .href
   }
   apply . _common-attrs
 }

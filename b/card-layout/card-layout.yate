@@ -3,7 +3,8 @@ func card-layout(nodeset params) {
 }
 
 match .card-layout b {
-  <div class="card-layout">
+  <div class="card-layout card-layout_lang_{.lang}">
+    apply . _common-attrs
     <div class="card-layout__left">
       <div class="card-layout__text">
         html(.content)

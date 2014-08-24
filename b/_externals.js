@@ -14,6 +14,10 @@
     }];
   };
 
+  yr.externals.json = function(nodeset) {
+    return JSON.stringify(nodeset[0].data);
+  };
+
   function pluck(list, popertyName) {
     var result = [];
     for (var i = 0, c = list.length; i < c; i++) {

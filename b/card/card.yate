@@ -3,18 +3,28 @@ func card(nodeset params) {
 }
 
 match .card b {
-  <div class="card card_lang_{.lang} _init" data-nb="card">
+  <div class="card card_lang_{.lang} _init font_textbook-new" data-nb="card">
     <div class="card__switch">
       link({
         'class': 'card__link'
         'pseudo': true()
         'current': true()
         'content': 'ru'
+        'attrs': {
+          'data-params': json({
+            'lang': 'ru'
+          })
+        }
       })
       link({
         'class': 'card__link'
         'pseudo': true()
         'content': 'en'
+        'attrs': {
+          'data-params': json({
+            'lang': 'en'
+          })
+        }
       })
     </div>
     html(.content)

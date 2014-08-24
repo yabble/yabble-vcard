@@ -1,15 +1,12 @@
-$width = 560px
-$height = 320px
-
 .card
   position: absolute
   top: 50%
   left: 50%
 
-  width: $width
-  height: $height
-  margin-top: -($height / 2)
-  margin-left: -($width / 2)
+  width: 560px
+  height: 320px
+  margin-top: -(@height / 2)
+  margin-left: -(@width / 2)
 
   perspective: 1000
 
@@ -36,7 +33,7 @@ $height = 320px
 .card__switch
   position: absolute
   z-index: 10
-  top: $height - 2px
+  bottom: -10px
   left: 10px
 
 .card__link

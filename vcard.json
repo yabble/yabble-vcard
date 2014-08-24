@@ -1,0 +1,42 @@
+{
+    "title": "Виктор Карпов — vitkarpov@yandex-team.ru",
+    "social": {
+        "github": "vitkarpov",
+        "vk": "vitkarpov",
+        "skype": "viktor.s.karpov"
+    },
+    "ru": {
+        "name": "Виктор Карпов",
+        "position": "Разработчик интерфейсов группы интерфейсов персональных сервисов",
+        "company": {
+            "country": "Россия",
+            "locality": "Москва",
+            "zip": "119021",
+            "address": "ул. Льва Толстого, д. 16",
+            "phone": "+7 (495) 739-70-00",
+            "phone-add": "7561",
+            "site": "www.yandex.ru"
+        },
+        "person": {
+            "email": "vitkarpov@yandex-team.ru",
+            "cell": "+7 (968) 717-09-34"
+        }
+    },
+    "en": {
+        "name": "Viktor Karpov",
+        "position": "Front-end developer of personal interfaces development team",
+        "company": {
+            "country": "Russia",
+            "locality": "Moscow",
+            "zip": "119021",
+            "address": "16, Leo Tolstoy St.",
+            "phone": "+7 (495) 739-70-00",
+            "phone-add": "7561",
+            "site": "www.yandex.ru"
+        },
+        "person": {
+            "email": "vitkarpov@yandex-team.ru",
+            "cell": "+7 (968) 717-09-34"
+        }
+    }
+}
